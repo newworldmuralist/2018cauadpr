@@ -1,0 +1,253 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang='en'>
+
+<html>
+	<head>
+		<title>대학생이 뽑은 좋은 광고</title>
+		<meta charset="utf-8">  
+
+		<!--font-->
+		<link href="https://fonts.googleapis.com/earlyaccess/jejugothic.css" rel="stylesheet">
+		
+		<link rel = "stylesheet" href = "https://fonts.googleapis.com/icon?family=Material+Icons">
+		
+		<script src="http://code.jquery.com/jquery-1.7.2.min.js"></script>
+		<script src = "https://storage.googleapis.com/code.getmdl.io/1.0.6/material.min.js"> </script>
+		
+		<style>
+			.container{
+				display: flex;
+				flex-wrap: wrap;
+				width: 100%;
+				height: auto;
+			}
+
+			.wrapper {
+				width: 100%;
+				height: auto;
+			}
+
+			.button {
+				text-align: center;
+				margin-top: 10px;
+				margin-bottom: 10px;
+			}
+
+			.candidates {
+				text-align: center;
+				background-color: #8ba985;
+				margin-top: 20px;
+				margin-bottom: 20px;
+				margin-left: 20px;
+				/*border: 2px solid #000000;*/
+			}
+
+			.video {
+				width: 100%;
+				height: 300px;
+			}
+			
+			/* Outer */
+			.popup {
+				width:100%;
+				height:100%;
+				display:none;
+				position:fixed;
+				top:0px;
+				left:0px;
+				background:rgba(0,0,0,0.80);
+			}
+
+			/* Inner */
+			.popup-inner {
+				max-width:700px;
+				width:90%;
+				padding:40px;
+				position:absolute;
+				top:50%;
+				left:50%;
+				-webkit-transform:translate(-50%, -50%);
+				transform:translate(-50%, -50%);
+			}
+
+			/* Close Button */
+			.popup-close {
+				text-decoration:none;
+				width:30px;
+				height:30px;
+				display:inline-block;
+				position:absolute;
+				top:50px;
+				right:50px;
+				transition:ease 0.25s all;
+				-webkit-transform:translate(50%, -50%);
+				transform:translate(50%, -50%);
+				font-family:Arial, Sans-Serif;
+				font-size:40px;
+				text-align:center;
+				line-height:100%;
+				color:#fff;
+			}
+
+		</style>
+	</head>
+
+	<!-- 배경색 -->
+	<body style="background-color: #fcebdb;">
+	
+	<!-- 배너 -->
+	<img class="wrapper" src="{% static 'indexlogo.png' %}">
+	<!-- <img class="wrapper" src="{% static 'video_new.png' %}"> -->
+
+	<form action="/tv/" method="POST">
+	{% csrf_token %}
+
+			<div class="container">
+				
+				<!-- 1번 후보 -->
+				<div class="candidates">
+					<a class="button" data-popup-open="popup-1" href="#">	
+						<img src="{% static 'test2.png' %}">	
+					</a>
+					<div class="popup" data-popup="popup-1">
+						<div class="popup-inner">
+							<div class="youtube">
+								<iframe class="video" allowfullscreen="true" frameborder="0" src="https://www.youtube.com/embed/GUD4-Mz2jeU">
+								</iframe>
+							</div>
+						</div>
+						<a class="popup-close" data-popup-close="popup-1" href="#">X</a>
+					</div>
+
+					<div class="button">
+						<input type="radio" id="radio" name="tv_id" value="1"></input>
+					</div>
+				</div>
+
+				<!-- 2번 후보 -->
+				<div class="candidates">
+					<a class="button" data-popup-open="popup-2" href="#">	
+						<img src="{% static 'test2.png' %}">	
+					</a>
+					<div class="popup" data-popup="popup-2">
+						<div class="popup-inner">
+							<div class="youtube">
+								<iframe class="video" allowfullscreen="true" frameborder="0" src="https://www.youtube.com/embed/dPLau0Mk4HA">
+								</iframe>
+							</div>
+						</div>
+						<a class="popup-close" data-popup-close="popup-2" href="#">X</a>
+					</div>
+
+					<div class="button">
+						<input type="radio" id="radio" name="tv_id" value="2"></input>
+					</div>
+				</div>
+
+				<!-- 3번 후보 -->
+				<div class="candidates">
+					<a class="button" data-popup-open="popup-3" href="#">	
+						<img src="{% static 'test2.png' %}">	
+					</a>
+					<div class="popup" data-popup="popup-3">
+						<div class="popup-inner">
+							<div class="youtube">
+								<iframe class="video" allowfullscreen="true" frameborder="0" src="https://www.youtube.com/embed/yl76je02dnI">
+								</iframe>
+							</div>
+						</div>
+						<a class="popup-close" data-popup-close="popup-3" href="#">X</a>
+					</div>
+
+					<div class="button">
+						<input type="radio" id="radio" name="tv_id" value="3"></input>
+					</div>
+				</div>
+
+				<!-- 4번 후보 -->
+				<div class="candidates">
+					<a class="button" data-popup-open="popup-4" href="#">	
+						<img src="{% static 'test2.png' %}">	
+					</a>
+					<div class="popup" data-popup="popup-4">
+						<div class="popup-inner">
+							<div class="youtube">
+								<iframe class="video" allowfullscreen="true" frameborder="0" src="https://www.youtube.com/embed/WybG8FesMc8">
+								</iframe>
+							</div>
+						</div>
+						<a class="popup-close" data-popup-close="popup-4" href="#">X</a>
+					</div>
+
+					<div class="button">
+						<input type="radio" id="radio" name="tv_id" value="4"></input>
+					</div>
+				</div>
+
+				<!-- 
+				{% for ad in vid_candidates %}
+				<div class="candidates">
+					<div class="youtube">
+						<iframe class="video" allowfullscreen="true" frameborder="0" 
+							src="{{ ad.video_url }}">
+						</iframe>
+					</div>
+					
+					<div class="button">
+						<input type="radio" id="radio" name="vid_id" value="{{ ad.id }}"></input>
+					</div>
+				</div>
+				{% endfor %} -->
+				
+			</div>
+
+			<!-- 제출 버튼 -->
+			<div class="button">
+				<input type="image" src="{% static 'button.png' %}" alt="Submit">
+			</div>
+
+		</form>
+		
+		<script>
+			// 팝업 레이어
+			$(function() 
+				{
+					//----- OPEN
+					$('[data-popup-open]').on('click', 
+						function(e) 
+						{
+							var targeted_popup_class = jQuery(this).attr('data-popup-open');
+							$('[data-popup="' + targeted_popup_class + '"]').fadeIn(350);
+
+							e.preventDefault();
+						}
+					);
+
+					//----- CLOSE
+					$('[data-popup-close]').on('click', 
+						function(e) 
+						{
+							var targeted_popup_class = jQuery(this).attr('data-popup-close');
+							$('[data-popup="' + targeted_popup_class + '"]').fadeOut(350);
+
+							e.preventDefault();
+						}
+					);
+				}
+			);
+		</script>
+
+		<!-- <script>
+		$("input:checkbox").click(
+			function() 
+			{
+				var bol = $("input:checkbox:checked").length >= 3;     
+				$("input:checkbox").not(":checked").attr("disabled", bol);
+			}
+		);
+		</script> -->
+		
+	</body>
+</html>

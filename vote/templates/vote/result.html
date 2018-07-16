@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>투표 결과</title>
+	<meta charset="utf-8">
+</head>
+	<body>
+		<div>
+			TV, 바이럴 부문 <br>
+			<br>
+			{% for ad in vid_candidates %}
+			{{ad.name}} = {{ad.result}} <br>
+			{% endfor %}
+			<br>
+		</div>
+		<div>
+			브랜디드 엔터테인먼트 부문 <br>
+			<br>
+			{% for ad in ent_candidates %}
+			{{ad.name}} = {{ad.result}} <br>
+			{% endfor %}
+			<br>
+		</div>
+	</body>
+</html>
