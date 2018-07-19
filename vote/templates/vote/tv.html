@@ -14,7 +14,7 @@
 		<link rel = "stylesheet" href = "https://fonts.googleapis.com/icon?family=Material+Icons">
 		
 		<script src="http://code.jquery.com/jquery-1.7.2.min.js"></script>
-		<script src = "https://storage.googleapis.com/code.getmdl.io/1.0.6/material.min.js"> </script>
+		<script src="https://storage.googleapis.com/code.getmdl.io/1.0.6/material.min.js"> </script>
 		
 		<style>
 			.container{
@@ -33,13 +33,14 @@
 				margin-bottom: 10px;
 			}
 			.candidates {
+				border: solid 3px #fcebdb;
 				text-align: center;
 				background-color: #8ba985;
 				margin-top: 20px;
 				margin-bottom: 20px;
 				margin-left: 20px;
 				width: 450px;
-				height: 650px;
+				height: 700px;
 				/*border: 2px solid #000000;*/
 			}
 			.video {
@@ -86,6 +87,12 @@
 				line-height:100%;
 				color:#fff;
 			}
+
+			input[type="radio"]{
+				width: 70px;
+				height: 70px;
+			}
+
 		</style>
 	</head>
 
@@ -102,10 +109,12 @@
 			<div class="container">
 				
 				<!-- 1번 후보 -->
-				<div class="candidates">
+				<div class="candidates" data-chosen="chosen-1">
+
 					<a class="button" data-popup-open="popup-1" href="#">	
-						<img src="{% static 'test2.png' %}">	
+						<img src="{% static 'test3.png' %}">	
 					</a>
+
 					<div class="popup" data-popup="popup-1">
 						<div class="popup-inner">
 							<div class="youtube">
@@ -117,14 +126,15 @@
 					</div>
 
 					<div class="button">
-						<input type="radio" id="radio" name="tv_id" value="1"></input>
+						<input type="radio" name="tv_id" value="1" data-chosen-alert="chosen-1"></input>
+						<!-- <input type="radio" id="radio" name="tv_id" value="1"></input> -->
 					</div>
 				</div>
 
 				<!-- 2번 후보 -->
-				<div class="candidates">
+				<div class="candidates" data-chosen="chosen-2">
 					<a class="button" data-popup-open="popup-2" href="#">	
-						<img src="{% static 'test2.png' %}">	
+						<img src="{% static 'test3.png' %}">	
 					</a>
 					<div class="popup" data-popup="popup-2">
 						<div class="popup-inner">
@@ -137,14 +147,14 @@
 					</div>
 
 					<div class="button">
-						<input type="radio" id="radio" name="tv_id" value="2"></input>
+						<input type="radio" id="radio" name="tv_id" value="2" data-chosen-alert="chosen-2"></input>
 					</div>
 				</div>
 
 				<!-- 3번 후보 -->
 				<div class="candidates">
 					<a class="button" data-popup-open="popup-3" href="#">	
-						<img src="{% static 'test2.png' %}">	
+						<img src="{% static 'test3.png' %}">	
 					</a>
 					<div class="popup" data-popup="popup-3">
 						<div class="popup-inner">
@@ -164,7 +174,7 @@
 				<!-- 4번 후보 -->
 				<div class="candidates">
 					<a class="button" data-popup-open="popup-4" href="#">	
-						<img src="{% static 'test2.png' %}">	
+						<img src="{% static 'test3.png' %}">	
 					</a>
 					<div class="popup" data-popup="popup-4">
 						<div class="popup-inner">
@@ -206,6 +216,22 @@
 		</form>
 		
 		<script>
+			$(function() 
+				{
+					$('[data-chosen-alert]').on('click',
+						function(e)
+						{
+							$('[data-chosen]').css("border", "solid 3px #fcebdb");	
+
+							var targeted_chosen_class = jQuery(this).attr('data-chosen-alert');
+							$(' [data-chosen=" ' + targeted_chosen_class + ' "] ').css("border", "solid 3px red");
+
+							e.preventDefault();
+						}
+					);
+				}
+			);
+
 			// 팝업 레이어
 			$(function() 
 				{
@@ -213,7 +239,7 @@
 					$('[data-popup-open]').on('click', 
 						function(e) 
 						{
-							var targeted_popup_class = jQuery(this).attr('data-popup-open');
+							var targeted_popup_class = $(this).attr('data-popup-open');
 							$('[data-popup="' + targeted_popup_class + '"]').fadeIn(350);
 
 							e.preventDefault();
