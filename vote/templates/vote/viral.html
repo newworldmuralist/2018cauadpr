@@ -26,6 +26,7 @@
 			.wrapper {
 				width: 100%;
 				height: auto;
+				border: none;
 			}
 			.button {
 				text-align: center;
@@ -34,12 +35,12 @@
 			}
 			.candidates {
 				text-align: center;
-				background-color: #8ba985;
+				background-color: #fcebdb;
 				margin-top: 20px;
 				margin-bottom: 20px;
 				margin-left: 20px;
 				width: 450px;
-				height: 650px;
+				height: 350px;
 				/*border: 2px solid #000000;*/
 			}
 			.video {
@@ -86,14 +87,19 @@
 				line-height:100%;
 				color:#fff;
 			}
+
+			input[type="radio"] {
+				width: 70px;
+				height: 70px;
+			}
 		</style>
 	</head>
 
 	<!-- 배경색 -->
-	<body style="background-color: #fcebdb;">
+	<body style="background-color: #8ba985;">
 	
 	<!-- 배너 -->
-	<img class="wrapper" src="{% static 'indexlogo.png' %}">
+	<img class="wrapper" src="{% static 'banner_viral.png' %}">
 	<!-- <img class="wrapper" src="{% static 'video_new.png' %}"> -->
 
 	<form action="/viral/" method="POST">
@@ -104,7 +110,7 @@
 				<!-- 1번 후보 -->
 				<div class="candidates">
 					<a class="button" data-popup-open="popup-1" href="#">	
-						<img src="{% static 'test2.png' %}">	
+						<img src="{% static 'test4.png' %}">	
 					</a>
 					<div class="popup" data-popup="popup-1">
 						<div class="popup-inner">
@@ -124,7 +130,7 @@
 				<!-- 1번 후보 -->
 				<div class="candidates">
 					<a class="button" data-popup-open="popup-2" href="#">	
-						<img src="{% static 'test2.png' %}">	
+						<img src="{% static 'test4.png' %}">	
 					</a>
 					<div class="popup" data-popup="popup-2">
 						<div class="popup-inner">
@@ -144,7 +150,7 @@
 				<!-- 1번 후보 -->
 				<div class="candidates">
 					<a class="button" data-popup-open="popup-3" href="#">	
-						<img src="{% static 'test2.png' %}">	
+						<img src="{% static 'test4.png' %}">	
 					</a>
 					<div class="popup" data-popup="popup-3">
 						<div class="popup-inner">
@@ -164,7 +170,7 @@
 				<!-- 1번 후보 -->
 				<div class="candidates">
 					<a class="button" data-popup-open="popup-4" href="#">	
-						<img src="{% static 'test2.png' %}">	
+						<img src="{% static 'test4.png' %}">	
 					</a>
 					<div class="popup" data-popup="popup-4">
 						<div class="popup-inner">
@@ -199,8 +205,8 @@
 			</div>
 
 			<!-- 제출 버튼 -->
-			<div class="button">
-				<input type="image" src="{% static 'button.png' %}" alt="Submit">
+			<div class="button" style="margin-top: 20px;">
+				<input type="image" src="{% static 'vb3.png' %}" alt="Submit">
 			</div>
 
 		</form>
