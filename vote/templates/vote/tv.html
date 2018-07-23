@@ -17,6 +17,10 @@
 		<script src="https://storage.googleapis.com/code.getmdl.io/1.0.6/material.min.js"> </script>
 		
 		<style>
+
+			@charset "UTF-8";
+			@import url(https://fonts.googleapis.com/css?family=Open+Sans);
+
 			.container{
 				display: flex;
 				flex-wrap: wrap;
@@ -26,16 +30,17 @@
 			.wrapper {
 				width: 100%;
 				height: auto;
+				border: none;
 			}
 			.button {
 				text-align: center;
-				margin-top: 10px;
-				margin-bottom: 10px;
+				margin-top: -15px;
+				/*margin-bottom: 10px;*/
 			}
 			.candidates {
 				border: solid 3px #fcebdb;
 				text-align: center;
-				background-color: #8ba985;
+				background-color: #fcebdb;
 				margin-top: 20px;
 				margin-bottom: 20px;
 				margin-left: 20px;
@@ -88,19 +93,33 @@
 				color:#fff;
 			}
 
-			input[type="radio"]{
-				width: 70px;
-				height: 70px;
+			input[type="radio"] {
+				display: none;
+			}
+
+			input[type="radio"] + label{
+				/*width: 70px;
+				height: 70px;*/
+				color: #aab8c2;
+			  	cursor: pointer;
+			  	font-size: 5em;
+			  	align-self: center;  
+			  	transition: color 0.2s ease-in-out;
+			  	background: transparent;
+			}
+
+			input[type="radio"]:checked + label {
+			  	color: #f3cf5f ;
 			}
 
 		</style>
 	</head>
 
 	<!-- 배경색 -->
-	<body style="background-color: #fcebdb;">
+	<body style="background-color: #8ba985;">
 	
 	<!-- 배너 -->
-	<img class="wrapper" src="{% static 'indexlogo.png' %}">
+	<img class="wrapper" src="{% static 'banner_tv.png' %}">
 	<!-- <img class="wrapper" src="{% static 'video_new.png' %}"> -->
 
 	<form action="/tv/" method="POST">
@@ -109,7 +128,7 @@
 			<div class="container">
 				
 				<!-- 1번 후보 -->
-				<div class="candidates" data-chosen="chosen-1">
+				<div class="candidates">
 
 					<!-- 썸네일 클릭 -->
 					<a class="button" data-popup-open="popup-1" href="#">	
@@ -129,7 +148,8 @@
 
 					<!-- 선택하기 -->
 					<div class="button">
-						<input type="radio" name="tv_id" value="1" data-chosen-alert="chosen-1"></input>
+						<input type="radio" name="tv_id" value="1" id="cand1"></input>
+						<label for="cand1">♥</label>
 						<!-- <input type="radio" id="radio" name="tv_id" value="1"></input> -->
 					</div>
 				</div>
@@ -150,7 +170,8 @@
 					</div>
 
 					<div class="button">
-						<input type="radio" id="radio" name="tv_id" value="2" data-chosen-alert="chosen-2"></input>
+						<input type="radio" id="radio" name="tv_id" value="2" id="cand2"></input>
+						<label for="cand2">♥</label>
 					</div>
 				</div>
 
@@ -170,7 +191,8 @@
 					</div>
 
 					<div class="button">
-						<input type="radio" id="radio" name="tv_id" value="3"></input>
+						<input type="radio" id="radio" name="tv_id" value="3"id="cand3"></input>
+						<label for="cand3">♥</label>
 					</div>
 				</div>
 
@@ -190,7 +212,8 @@
 					</div>
 
 					<div class="button">
-						<input type="radio" id="radio" name="tv_id" value="4"></input>
+						<input type="radio" id="radio" name="tv_id" value="4" id="cand4"></input>
+						<label for="cand4">♥</label>
 					</div>
 				</div>
 
@@ -212,28 +235,28 @@
 			</div>
 
 			<!-- 제출 버튼 -->
-			<div class="button">
-				<input type="image" src="{% static 'button.png' %}" alt="Submit">
+			<div class="button" style="margin-top: 20px;">
+				<input type="image" src="{% static 'vb2.png' %}" alt="Submit">
 			</div>
 
 		</form>
 		
 		<script>
-			$(function() 
-				{
-					$('[data-chosen-alert]').on('click',
-						function(e)
-						{
-							$('[data-chosen]').css("border", "solid 3px #fcebdb");	
+			// $(function() 
+			// 	{
+			// 		$('[data-chosen-alert]').on('click',
+			// 			function(e)
+			// 			{
+			// 				$('[data-chosen]').css("border", "solid 3px #fcebdb");	
 
-							var targeted_chosen_class = jQuery(this).attr('data-chosen-alert');
-							$('[data-chosen="' + targeted_chosen_class + '"]').css("border", "solid 3px red");
+			// 				var targeted_chosen_class = jQuery(this).attr('data-chosen-alert');
+			// 				$('[data-chosen="' + targeted_chosen_class + '"]').css("border", "solid 3px red");
 
-							e.preventDefault();
-						}
-					);
-				}
-			);
+			// 				e.preventDefault();
+			// 			}
+			// 		);
+			// 	}
+			// );
 
 			// 팝업 레이어
 			$(function() 
