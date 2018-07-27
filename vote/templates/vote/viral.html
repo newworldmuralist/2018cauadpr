@@ -34,7 +34,7 @@
 				margin-bottom: 10px;
 			}
 			.candidates {
-				text-align: center;
+				text-align: right;
 				background-color: #fcebdb;
 				margin-top: 20px;
 				margin-bottom: 20px;
@@ -89,8 +89,22 @@
 			}
 
 			input[type="radio"] {
-				width: 70px;
-				height: 70px;
+				display: none;
+			}
+
+			input[type="radio"] + label::before{
+				margin: 0 0 0 10px;
+				width: 100px;
+				height: 90px;
+				content: '';
+				display: inline-block;
+			  	cursor: pointer;  
+			  	background: url(../assets/heart_test2.png);
+			}
+
+			input[type="radio"]:checked + label::before {
+			 	background: url(../assets/heart_test2.png); 	
+			  	background-position: 100px 0;
 			}
 		</style>
 	</head>
@@ -109,9 +123,13 @@
 				
 				<!-- 1번 후보 -->
 				<div class="candidates">
+
+					<!-- 썸네일 클릭 -->
 					<a class="button" data-popup-open="popup-1" href="#">	
 						<img src="{% static 'test4.png' %}">	
 					</a>
+
+					<!-- 팝업 레이어 -->
 					<div class="popup" data-popup="popup-1">
 						<div class="popup-inner">
 							<div class="youtube">
@@ -122,32 +140,36 @@
 						<a class="popup-close" data-popup-close="popup-1" href="#">X</a>
 					</div>
 
-					<div class="button">
-						<input type="radio" id="radio" name="viral_id" value="1"></input>
-					</div>
+					<!-- 선택하기 -->
+					<!-- <div class="button"> -->
+						<input type="radio" name="viral_id" value="1" id="cand1"></input>
+						<label for="cand1"></label>
+						<!-- <input type="radio" id="radio" name="tv_id" value="1"></input> -->
+					<!-- </div> -->
 				</div>
 
-				<!-- 1번 후보 -->
-				<div class="candidates">
+				<!-- 2번 후보 -->
+				<div class="candidates" data-chosen="chosen-2">
 					<a class="button" data-popup-open="popup-2" href="#">	
 						<img src="{% static 'test4.png' %}">	
 					</a>
 					<div class="popup" data-popup="popup-2">
 						<div class="popup-inner">
 							<div class="youtube">
-								<iframe class="video" allowfullscreen="true" frameborder="0" src="https://www.youtube.com/embed/GUD4-Mz2jeU">
+								<iframe class="video" allowfullscreen="true" frameborder="0" src="https://www.youtube.com/embed/dPLau0Mk4HA">
 								</iframe>
 							</div>
 						</div>
 						<a class="popup-close" data-popup-close="popup-2" href="#">X</a>
 					</div>
 
-					<div class="button">
-						<input type="radio" id="radio" name="viral_id" value="2"></input>
-					</div>
+					<!-- <div class="button"> -->
+						<input type="radio" name="viral_id" value="2" id="cand2" ></input>
+						<label for="cand2"></label>
+					<!-- </div> -->
 				</div>
 
-				<!-- 1번 후보 -->
+				<!-- 3번 후보 -->
 				<div class="candidates">
 					<a class="button" data-popup-open="popup-3" href="#">	
 						<img src="{% static 'test4.png' %}">	
@@ -155,19 +177,20 @@
 					<div class="popup" data-popup="popup-3">
 						<div class="popup-inner">
 							<div class="youtube">
-								<iframe class="video" allowfullscreen="true" frameborder="0" src="https://www.youtube.com/embed/GUD4-Mz2jeU">
+								<iframe class="video" allowfullscreen="true" frameborder="0" src="https://www.youtube.com/embed/yl76je02dnI">
 								</iframe>
 							</div>
 						</div>
 						<a class="popup-close" data-popup-close="popup-3" href="#">X</a>
 					</div>
 
-					<div class="button">
-						<input type="radio" id="radio" name="viral_id" value="3"></input>
-					</div>
+					<!-- <div class="button"> -->
+						<input type="radio" name="viral_id" value="3"id="cand3"></input>
+						<label for="cand3"></label>
+					<!-- </div> -->
 				</div>
 
-				<!-- 1번 후보 -->
+				<!-- 4번 후보 -->
 				<div class="candidates">
 					<a class="button" data-popup-open="popup-4" href="#">	
 						<img src="{% static 'test4.png' %}">	
@@ -175,33 +198,18 @@
 					<div class="popup" data-popup="popup-4">
 						<div class="popup-inner">
 							<div class="youtube">
-								<iframe class="video" allowfullscreen="true" frameborder="0" src="https://www.youtube.com/embed/GUD4-Mz2jeU">
+								<iframe class="video" allowfullscreen="true" frameborder="0" src="https://www.youtube.com/embed/WybG8FesMc8">
 								</iframe>
 							</div>
 						</div>
 						<a class="popup-close" data-popup-close="popup-4" href="#">X</a>
 					</div>
 
-					<div class="button">
-						<input type="radio" id="radio" name="viral_id" value="4"></input>
-					</div>
+					<!-- <div class="button"> -->
+						<input type="radio" name="viral_id" value="4" id="cand4"></input>
+						<label for="cand4"></label>
+					<!-- </div> -->
 				</div>
-
-				<!-- 
-				{% for ad in vid_candidates %}
-				<div class="candidates">
-					<div class="youtube">
-						<iframe class="video" allowfullscreen="true" frameborder="0" 
-							src="{{ ad.video_url }}">
-						</iframe>
-					</div>
-					
-					<div class="button">
-						<input type="radio" id="radio" name="vid_id" value="{{ ad.id }}"></input>
-					</div>
-				</div>
-				{% endfor %} -->
-				
 			</div>
 
 			<!-- 제출 버튼 -->
