@@ -94,6 +94,7 @@
 			}
 
 			input[type="radio"] + label::before{
+				opacity: 50;
 				margin: 0 0 0 10px;
 				width: 100px;
 				height: 90px;
@@ -134,7 +135,8 @@
 					<div class="popup" data-popup="popup-1">
 						<div class="popup-inner">
 							<div class="youtube">
-								<iframe class="video" allowfullscreen="true" frameborder="0" src="https://www.youtube.com/embed/GUD4-Mz2jeU">
+							<!-- <div id="vid1"> -->
+								<iframe vid-number="popup-1" class="video" allowfullscreen="true" frameborder="0" src="https://www.youtube.com/embed/GUD4-Mz2jeU">
 								</iframe>
 							</div>
 						</div>
@@ -157,7 +159,8 @@
 					<div class="popup" data-popup="popup-2">
 						<div class="popup-inner">
 							<div class="youtube">
-								<iframe class="video" allowfullscreen="true" frameborder="0" src="https://www.youtube.com/embed/dPLau0Mk4HA">
+							<!-- <div id="vid2"> -->
+								<iframe vid-number="popup-2" class="video" allowfullscreen="true" frameborder="0" src="https://www.youtube.com/embed/dPLau0Mk4HA">
 								</iframe>
 							</div>
 						</div>
@@ -178,7 +181,8 @@
 					<div class="popup" data-popup="popup-3">
 						<div class="popup-inner">
 							<div class="youtube">
-								<iframe class="video" allowfullscreen="true" frameborder="0" src="https://www.youtube.com/embed/yl76je02dnI">
+							<!-- <div id="vid3"> -->
+								<iframe vid-number="popup-3" class="video" allowfullscreen="true" frameborder="0" src="https://www.youtube.com/embed/yl76je02dnI">
 								</iframe>
 							</div>
 						</div>
@@ -199,7 +203,8 @@
 					<div class="popup" data-popup="popup-4">
 						<div class="popup-inner">
 							<div class="youtube">
-								<iframe class="video" allowfullscreen="true" frameborder="0" src="https://www.youtube.com/embed/WybG8FesMc8">
+							<!-- <div id="vid4"> -->
+								<iframe vid-number="popup-4" class="video" allowfullscreen="true" frameborder="0" src="https://www.youtube.com/embed/WybG8FesMc8">
 								</iframe>
 							</div>
 						</div>
@@ -237,48 +242,49 @@
 		</form>
 		
 		<script>
-			// $(function() 
-			// 	{
-			// 		$('[data-chosen-alert]').on('click',
-			// 			function(e)
-			// 			{
-			// 				$('[data-chosen]').css("border", "solid 3px #fcebdb");	
+			$(document).ready(function(){
+				var src1 = $('[vid-number="popup-1"]').attr('src');
+				var src2 = $('[vid-number="popup-2"]').attr('src');
+				var src3 = $('[vid-number="popup-3"]').attr('src');
+				var src4 = $('[vid-number="popup-4"]').attr('src');
 
-			// 				var targeted_chosen_class = jQuery(this).attr('data-chosen-alert');
-			// 				$('[data-chosen="' + targeted_chosen_class + '"]').css("border", "solid 3px red");
+				$('.youtube').children('iframe').attr('src', '');
 
-			// 				e.preventDefault();
-			// 			}
-			// 		);
-			// 	}
-			// );
+				// 팝업 레이어
+				$(function() 
+					{
+						//----- OPEN
+						$('[data-popup-open]').on('click', 
+							function(e) 
+							{
+								var targeted_popup_class = $(this).attr('data-popup-open');
+								$('[data-popup="' + targeted_popup_class + '"]').fadeIn(350);
 
-			// 팝업 레이어
-			$(function() 
-				{
-					//----- OPEN
-					$('[data-popup-open]').on('click', 
-						function(e) 
-						{
-							var targeted_popup_class = $(this).attr('data-popup-open');
-							$('[data-popup="' + targeted_popup_class + '"]').fadeIn(350);
+								$('[vid-number="popup-1"]').attr('src', src1);
+								$('[vid-number="popup-2"]').attr('src', src2);
+								$('[vid-number="popup-3"]').attr('src', src3);
+								$('[vid-number="popup-4"]').attr('src', src4);
 
-							e.preventDefault();
-						}
-					);
+								e.preventDefault();
+							}
+						);
 
-					//----- CLOSE
-					$('[data-popup-close]').on('click', 
-						function(e) 
-						{
-							var targeted_popup_class = jQuery(this).attr('data-popup-close');
-							$('[data-popup="' + targeted_popup_class + '"]').fadeOut(350);
+						//----- CLOSE
+						$('[data-popup-close]').on('click', 
+							function(e) 
+							{
+								var targeted_popup_class = jQuery(this).attr('data-popup-close');
+								$('[data-popup="' + targeted_popup_class + '"]').fadeOut(350);
 
-							e.preventDefault();
-						}
-					);
-				}
-			);
+								$('.youtube').children('iframe').attr('src', '');
+
+								e.preventDefault();
+							}
+						);
+					}
+				);
+			});
+
 		</script>
 
 		<!-- <script>
