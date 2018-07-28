@@ -14,7 +14,7 @@
 		<link rel = "stylesheet" href = "https://fonts.googleapis.com/icon?family=Material+Icons">
 		
 		<script src="http://code.jquery.com/jquery-1.7.2.min.js"></script>
-		<script src = "https://storage.googleapis.com/code.getmdl.io/1.0.6/material.min.js"> </script>
+		<script src="https://storage.googleapis.com/code.getmdl.io/1.0.6/material.min.js"> </script>
 		
 		<style>
 			.container{
@@ -28,10 +28,11 @@
 				height: auto;
 				border: none;
 			}
+
 			.button {
 				text-align: center;
-				margin-top: 10px;
-				margin-bottom: 10px;
+				margin-top: -15px;
+
 			}
 			.candidates {
 				text-align: right;
@@ -93,12 +94,13 @@
 			}
 
 			input[type="radio"] + label::before{
+				opacity: 50;
 				margin: 0 0 0 10px;
 				width: 100px;
 				height: 90px;
 				content: '';
 				display: inline-block;
-			  	cursor: pointer;  
+			  	cursor: pointer;
 			  	background: url(../assets/heart_test2.png);
 			}
 
@@ -133,19 +135,16 @@
 					<div class="popup" data-popup="popup-1">
 						<div class="popup-inner">
 							<div class="youtube">
-								<iframe class="video" allowfullscreen="true" frameborder="0" src="https://www.youtube.com/embed/GUD4-Mz2jeU">
+							<!-- <div id="vid1"> -->
+								<iframe vid-number="popup-1" class="video" allowfullscreen="true" frameborder="0" src="https://www.youtube.com/embed/GUD4-Mz2jeU">
 								</iframe>
 							</div>
 						</div>
 						<a class="popup-close" data-popup-close="popup-1" href="#">X</a>
 					</div>
 
-					<!-- 선택하기 -->
-					<!-- <div class="button"> -->
-						<input type="radio" name="viral_id" value="1" id="cand1"></input>
-						<label for="cand1"></label>
-						<!-- <input type="radio" id="radio" name="tv_id" value="1"></input> -->
-					<!-- </div> -->
+					<input type="radio" name="viral_id" value="1" id="cand1"></input>
+					<label for="cand1"></label>
 				</div>
 
 				<!-- 2번 후보 -->
@@ -156,17 +155,15 @@
 					<div class="popup" data-popup="popup-2">
 						<div class="popup-inner">
 							<div class="youtube">
-								<iframe class="video" allowfullscreen="true" frameborder="0" src="https://www.youtube.com/embed/dPLau0Mk4HA">
+								<iframe vid-number="popup-2" class="video" allowfullscreen="true" frameborder="0" src="https://www.youtube.com/embed/dPLau0Mk4HA">
 								</iframe>
 							</div>
 						</div>
 						<a class="popup-close" data-popup-close="popup-2" href="#">X</a>
 					</div>
 
-					<!-- <div class="button"> -->
-						<input type="radio" name="viral_id" value="2" id="cand2" ></input>
-						<label for="cand2"></label>
-					<!-- </div> -->
+					<input type="radio" name="viral_id" value="2" id="cand2" ></input>
+					<label for="cand2"></label>
 				</div>
 
 				<!-- 3번 후보 -->
@@ -177,17 +174,15 @@
 					<div class="popup" data-popup="popup-3">
 						<div class="popup-inner">
 							<div class="youtube">
-								<iframe class="video" allowfullscreen="true" frameborder="0" src="https://www.youtube.com/embed/yl76je02dnI">
+								<iframe vid-number="popup-3" class="video" allowfullscreen="true" frameborder="0" src="https://www.youtube.com/embed/yl76je02dnI">
 								</iframe>
 							</div>
 						</div>
 						<a class="popup-close" data-popup-close="popup-3" href="#">X</a>
 					</div>
 
-					<!-- <div class="button"> -->
-						<input type="radio" name="viral_id" value="3"id="cand3"></input>
-						<label for="cand3"></label>
-					<!-- </div> -->
+					<input type="radio" name="viral_id" value="3"id="cand3"></input>
+					<label for="cand3"></label>
 				</div>
 
 				<!-- 4번 후보 -->
@@ -198,18 +193,98 @@
 					<div class="popup" data-popup="popup-4">
 						<div class="popup-inner">
 							<div class="youtube">
-								<iframe class="video" allowfullscreen="true" frameborder="0" src="https://www.youtube.com/embed/WybG8FesMc8">
+								<iframe vid-number="popup-4" class="video" allowfullscreen="true" frameborder="0" src="https://www.youtube.com/embed/WybG8FesMc8">
 								</iframe>
 							</div>
 						</div>
 						<a class="popup-close" data-popup-close="popup-4" href="#">X</a>
 					</div>
 
-					<!-- <div class="button"> -->
-						<input type="radio" name="viral_id" value="4" id="cand4"></input>
-						<label for="cand4"></label>
-					<!-- </div> -->
+					<input type="radio" name="viral_id" value="4" id="cand4"></input>
+					<label for="cand4"></label>
 				</div>
+
+				<!-- 5번 후보 -->
+				<div class="candidates">
+
+					<!-- 썸네일 클릭 -->
+					<a class="button" data-popup-open="popup-5" href="#">	
+						<img src="{% static 'test4.png' %}">	
+					</a>
+
+					<!-- 팝업 레이어 -->
+					<div class="popup" data-popup="popup-5">
+						<div class="popup-inner">
+							<div class="youtube">
+								<iframe vid-number="popup-5" class="video" allowfullscreen="true" frameborder="0" src="https://www.youtube.com/embed/GUD4-Mz2jeU">
+								</iframe>
+							</div>
+						</div>
+						<a class="popup-close" data-popup-close="popup-5" href="#">X</a>
+					</div>
+
+					<input type="radio" name="viral_id" value="5" id="cand5"></input>
+					<label for="cand5"></label>
+				</div>
+
+				<!-- 6번 후보 -->
+				<div class="candidates">
+					<a class="button" data-popup-open="popup-6" href="#">	
+						<img src="{% static 'test4.png' %}">	
+					</a>
+					<div class="popup" data-popup="popup-6">
+						<div class="popup-inner">
+							<div class="youtube">
+								<iframe vid-number="popup-6" class="video" allowfullscreen="true" frameborder="0" src="https://www.youtube.com/embed/dPLau0Mk4HA">
+								</iframe>
+							</div>
+						</div>
+						<a class="popup-close" data-popup-close="popup-6" href="#">X</a>
+					</div>
+
+					<input type="radio" name="viral_id" value="6" id="cand6" ></input>
+					<label for="cand6"></label>
+				</div>
+
+				<!-- 7번 후보 -->
+				<div class="candidates">
+					<a class="button" data-popup-open="popup-7" href="#">	
+						<img src="{% static 'test4.png' %}">	
+					</a>
+					<div class="popup" data-popup="popup-7">
+						<div class="popup-inner">
+							<div class="youtube">
+								<iframe vid-number="popup-7" class="video" allowfullscreen="true" frameborder="0" src="https://www.youtube.com/embed/yl76je02dnI">
+								</iframe>
+							</div>
+						</div>
+						<a class="popup-close" data-popup-close="popup-7" href="#">X</a>
+					</div>
+
+					<input type="radio" name="viral_id" value="7"id="cand7"></input>
+					<label for="cand7"></label>
+				</div>
+
+				<!-- 8번 후보 -->
+				<div class="candidates">
+					<a class="button" data-popup-open="popup-8" href="#">	
+						<img src="{% static 'test4.png' %}">	
+					</a>
+					<div class="popup" data-popup="popup-8">
+						<div class="popup-inner">
+							<div class="youtube">
+								<iframe vid-number="popup-8" class="video" allowfullscreen="true" frameborder="0" src="https://www.youtube.com/embed/WybG8FesMc8">
+								</iframe>
+							</div>
+						</div>
+						<a class="popup-close" data-popup-close="popup-8" href="#">X</a>
+					</div>
+
+					<input type="radio" name="viral_id" value="8" id="cand8"></input>
+					<label for="cand8"></label>
+				</div>
+
+
 			</div>
 
 			<!-- 제출 버튼 -->
@@ -220,43 +295,57 @@
 		</form>
 		
 		<script>
-			// 팝업 레이어
-			$(function() 
-				{
-					//----- OPEN
-					$('[data-popup-open]').on('click', 
-						function(e) 
-						{
-							var targeted_popup_class = jQuery(this).attr('data-popup-open');
-							$('[data-popup="' + targeted_popup_class + '"]').fadeIn(350);
+			$(document).ready(function(){
+				var src1 = $('[vid-number="popup-1"]').attr('src');
+				var src2 = $('[vid-number="popup-2"]').attr('src');
+				var src3 = $('[vid-number="popup-3"]').attr('src');
+				var src4 = $('[vid-number="popup-4"]').attr('src');
+				var src5 = $('[vid-number="popup-5"]').attr('src');
+				var src6 = $('[vid-number="popup-6"]').attr('src');
+				var src7 = $('[vid-number="popup-7"]').attr('src');
+				var src8 = $('[vid-number="popup-8"]').attr('src');
 
-							e.preventDefault();
-						}
-					);
+				$('.youtube').children('iframe').attr('src', '');
 
-					//----- CLOSE
-					$('[data-popup-close]').on('click', 
-						function(e) 
-						{
-							var targeted_popup_class = jQuery(this).attr('data-popup-close');
-							$('[data-popup="' + targeted_popup_class + '"]').fadeOut(350);
+				// 팝업 레이어
+				$(function() 
+					{
+						//----- OPEN
+						$('[data-popup-open]').on('click', 
+							function(e) 
+							{
+								var targeted_popup_class = $(this).attr('data-popup-open');
+								$('[data-popup="' + targeted_popup_class + '"]').fadeIn(350);
 
-							e.preventDefault();
-						}
-					);
-				}
-			);
+								$('[vid-number="popup-1"]').attr('src', src1);
+								$('[vid-number="popup-2"]').attr('src', src2);
+								$('[vid-number="popup-3"]').attr('src', src3);
+								$('[vid-number="popup-4"]').attr('src', src4);
+								$('[vid-number="popup-5"]').attr('src', src5);
+								$('[vid-number="popup-6"]').attr('src', src6);
+								$('[vid-number="popup-7"]').attr('src', src7);
+								$('[vid-number="popup-8"]').attr('src', src8);
+
+								e.preventDefault();
+							}
+						);
+
+						//----- CLOSE
+						$('[data-popup-close]').on('click', 
+							function(e) 
+							{
+								var targeted_popup_class = jQuery(this).attr('data-popup-close');
+								$('[data-popup="' + targeted_popup_class + '"]').fadeOut(350);
+
+								$('.youtube').children('iframe').attr('src', '');
+
+								e.preventDefault();
+							}
+						);
+					}
+				);
+			});
+
 		</script>
-
-		<!-- <script>
-		$("input:checkbox").click(
-			function() 
-			{
-				var bol = $("input:checkbox:checked").length >= 3;     
-				$("input:checkbox").not(":checked").attr("disabled", bol);
-			}
-		);
-		</script> -->
-		
 	</body>
 </html>
