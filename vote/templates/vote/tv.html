@@ -35,7 +35,7 @@
 
 			}
 			.candidates {
-				text-align: right;
+				text-align: left;
 				background-color: #fcebdb;
 				margin-top: 20px;
 				margin-bottom: 20px;
@@ -44,6 +44,21 @@
 				height: 350px;
 				/*border: 2px solid #000000;*/
 			}
+
+			.description {
+				font-family: 'Jeju Gothic', Sans-Serif;
+				display: inline-block;
+				position: absolute;
+				margin: 15px;
+				margin-left: 20px;
+				font-size: 25px;
+			}
+
+			p {
+				margin-top: 0px;
+				font-size: 35px;
+			}
+
 			.video {
 				width: 100%;
 				height: 600px;
@@ -95,7 +110,7 @@
 
 			input[type="radio"] + label::before{
 				opacity: 50;
-				margin: 0 0 0 10px;
+				margin: 0 0 0 340px;
 				width: 100px;
 				height: 90px;
 				content: '';
@@ -124,42 +139,49 @@
 			<div class="container">
 				
 				<!-- 1번 후보 -->
+				<!-- 옥수수수염차/다짜고짜 -->
 				<div class="candidates">
 
 					<!-- 썸네일 클릭 -->
 					<a class="button" data-popup-open="popup-1" href="#">	
-						<img src="{% static 'test4.png' %}">	
+						<img src="{% static 'tv1.png' %}">	
 					</a>
 
 					<!-- 팝업 레이어 -->
 					<div class="popup" data-popup="popup-1">
 						<div class="popup-inner">
 							<div class="youtube">
-							<!-- <div id="vid1"> -->
-								<iframe vid-number="popup-1" class="video" allowfullscreen="true" frameborder="0" src="https://www.youtube.com/embed/GUD4-Mz2jeU">
+								<iframe vid-number="popup-1" class="video" allowfullscreen="true" frameborder="0" src="https://www.youtube.com/embed/t69qiU1I51Y">
 								</iframe>
 							</div>
 						</div>
 						<a class="popup-close" data-popup-close="popup-1" href="#">X</a>
 					</div>
-
+					<div class="description">
+					광동 옥수수수염차<p>다짜고짜</p>
+					</div>
 					<input type="radio" name="tv_id" value="1" id="cand1"></input>
 					<label for="cand1"></label>
 				</div>
 
 				<!-- 2번 후보 -->
+				<!-- 정관장 홍삼정 에브리타임/휴가  -->
 				<div class="candidates" data-chosen="chosen-2">
 					<a class="button" data-popup-open="popup-2" href="#">	
-						<img src="{% static 'thumb_test.jpg' %}">	
+						<img src="{% static 'tv2.png' %}">	
 					</a>
 					<div class="popup" data-popup="popup-2">
 						<div class="popup-inner">
 							<div class="youtube">
-								<iframe vid-number="popup-2" class="video" allowfullscreen="true" frameborder="0" src="https://www.youtube.com/embed/dPLau0Mk4HA">
+								<iframe vid-number="popup-2" class="video" allowfullscreen="true" frameborder="0" src="https://www.youtube.com/embed/cAGQcyP-sbU">
 								</iframe>
 							</div>
 						</div>
 						<a class="popup-close" data-popup-close="popup-2" href="#">X</a>
+					</div>
+
+					<div class="description">
+					정관장 홍삼정 에브리타임<p>휴가</p>
 					</div>
 
 					<input type="radio" name="tv_id" value="2" id="cand2" ></input>
@@ -167,18 +189,23 @@
 				</div>
 
 				<!-- 3번 후보 -->
+				<!-- 아이폰X/인물사진조명 -->
 				<div class="candidates">
 					<a class="button" data-popup-open="popup-3" href="#">	
-						<img src="{% static 'test4.png' %}">	
+						<img src="{% static 'tv3.png' %}">	
 					</a>
 					<div class="popup" data-popup="popup-3">
 						<div class="popup-inner">
 							<div class="youtube">
-								<iframe vid-number="popup-3" class="video" allowfullscreen="true" frameborder="0" src="https://www.youtube.com/embed/yl76je02dnI">
+								<iframe vid-number="popup-3" class="video" allowfullscreen="true" frameborder="0" src="https://www.youtube.com/embed/tH9AqpjAng4">
 								</iframe>
 							</div>
 						</div>
 						<a class="popup-close" data-popup-close="popup-3" href="#">X</a>
+					</div>
+
+					<div class="description">
+					아이폰X<p>인물사진 조명</p>
 					</div>
 
 					<input type="radio" name="tv_id" value="3"id="cand3"></input>
@@ -186,18 +213,23 @@
 				</div>
 
 				<!-- 4번 후보 -->
+				<!-- 공익광고협의회/층간내리사랑 -->
 				<div class="candidates">
 					<a class="button" data-popup-open="popup-4" href="#">	
-						<img src="{% static 'test4.png' %}">	
+						<img src="{% static 'tv4.png' %}">	
 					</a>
 					<div class="popup" data-popup="popup-4">
 						<div class="popup-inner">
 							<div class="youtube">
-								<iframe vid-number="popup-4" class="video" allowfullscreen="true" frameborder="0" src="https://www.youtube.com/embed/WybG8FesMc8">
+								<iframe vid-number="popup-4" class="video" allowfullscreen="true" frameborder="0" src="https://www.youtube.com/embed/MO390LdYdPI">
 								</iframe>
 							</div>
 						</div>
 						<a class="popup-close" data-popup-close="popup-4" href="#">X</a>
+					</div>
+
+					<div class="description">
+					공익광고협의회<p>층간 내리사랑</p>
 					</div>
 
 					<input type="radio" name="tv_id" value="4" id="cand4"></input>
@@ -205,22 +237,27 @@
 				</div>
 
 				<!-- 5번 후보 -->
+				<!-- LG OLED TV/지구의 한 조각 -->
 				<div class="candidates">
 
 					<!-- 썸네일 클릭 -->
 					<a class="button" data-popup-open="popup-5" href="#">	
-						<img src="{% static 'test4.png' %}">	
+						<img src="{% static 'tv5.png' %}">	
 					</a>
 
 					<!-- 팝업 레이어 -->
 					<div class="popup" data-popup="popup-5">
 						<div class="popup-inner">
 							<div class="youtube">
-								<iframe vid-number="popup-5" class="video" allowfullscreen="true" frameborder="0" src="https://www.youtube.com/embed/GUD4-Mz2jeU">
+								<iframe vid-number="popup-5" class="video" allowfullscreen="true" frameborder="0" src="https://www.youtube.com/embed/FrFzVlEK3VU">
 								</iframe>
 							</div>
 						</div>
 						<a class="popup-close" data-popup-close="popup-5" href="#">X</a>
+					</div>
+
+					<div class="description">
+					LG OLED TV<p>지구의 한 조각</p>
 					</div>
 
 					<input type="radio" name="tv_id" value="6" id="cand5"></input>
@@ -228,18 +265,23 @@
 				</div>
 
 				<!-- 6번 후보 -->
+				<!-- 캐논 EOS M100/기-승-전-결국 내 사진_석양 -->
 				<div class="candidates">
 					<a class="button" data-popup-open="popup-6" href="#">	
-						<img src="{% static 'test4.png' %}">	
+						<img src="{% static 'tv6.png' %}">	
 					</a>
 					<div class="popup" data-popup="popup-6">
 						<div class="popup-inner">
 							<div class="youtube">
-								<iframe vid-number="popup-6" class="video" allowfullscreen="true" frameborder="0" src="https://www.youtube.com/embed/dPLau0Mk4HA">
+								<iframe vid-number="popup-6" class="video" allowfullscreen="true" frameborder="0" src="https://www.youtube.com/embed/0SD94WKa72Q">
 								</iframe>
 							</div>
 						</div>
 						<a class="popup-close" data-popup-close="popup-6" href="#">X</a>
+					</div>
+
+					<div class="description">
+					캐논EOS M100<p style="font-size: 35px">기-승-전-결국 내 사진</p>
 					</div>
 
 					<input type="radio" name="tv_id" value="7" id="cand6" ></input>
@@ -247,18 +289,23 @@
 				</div>
 
 				<!-- 7번 후보 -->
+				<!-- SK하이닉스/안에서 세상 밖으로 -->
 				<div class="candidates">
 					<a class="button" data-popup-open="popup-7" href="#">	
-						<img src="{% static 'test4.png' %}">	
+						<img src="{% static 'tv7.png' %}">	
 					</a>
 					<div class="popup" data-popup="popup-7">
 						<div class="popup-inner">
 							<div class="youtube">
-								<iframe vid-number="popup-7" class="video" allowfullscreen="true" frameborder="0" src="https://www.youtube.com/embed/yl76je02dnI">
+								<iframe vid-number="popup-7" class="video" allowfullscreen="true" frameborder="0" src="https://www.youtube.com/embed/h7_ZJ_3KHcw">
 								</iframe>
 							</div>
 						</div>
 						<a class="popup-close" data-popup-close="popup-7" href="#">X</a>
+					</div>
+
+					<div class="description">
+					SK하이닉스<p>안에서 세상 밖으로</p>
 					</div>
 
 					<input type="radio" name="tv_id" value="8"id="cand7"></input>
@@ -266,18 +313,23 @@
 				</div>
 
 				<!-- 8번 후보 -->
+				<!-- SK텔레콤/어느 해녀의 그리움 -->
 				<div class="candidates">
 					<a class="button" data-popup-open="popup-8" href="#">	
-						<img src="{% static 'test4.png' %}">	
+						<img src="{% static 'tv8.jpg' %}">	
 					</a>
 					<div class="popup" data-popup="popup-8">
 						<div class="popup-inner">
 							<div class="youtube">
-								<iframe vid-number="popup-8" class="video" allowfullscreen="true" frameborder="0" src="https://www.youtube.com/embed/WybG8FesMc8">
+								<iframe vid-number="popup-8" class="video" allowfullscreen="true" frameborder="0" src="https://www.youtube.com/embed/NrNZ80zY8LE">
 								</iframe>
 							</div>
 						</div>
 						<a class="popup-close" data-popup-close="popup-8" href="#">X</a>
+					</div>
+
+					<div class="description">
+					SK텔레콤<p>어느 해녀의 그리움</p>
 					</div>
 
 					<input type="radio" name="tv_id" value="9" id="cand8"></input>
