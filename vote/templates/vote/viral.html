@@ -35,7 +35,7 @@
 
 			}
 			.candidates {
-				text-align: right;
+				text-align: left;
 				background-color: #fcebdb;
 				margin-top: 20px;
 				margin-bottom: 20px;
@@ -44,6 +44,21 @@
 				height: 350px;
 				/*border: 2px solid #000000;*/
 			}
+
+			.description {
+				font-family: 'Jeju Gothic', Sans-Serif;
+				display: inline-block;
+				position: absolute;
+				margin: 15px;
+				margin-left: 20px;
+				font-size: 25px;
+			}
+
+			p {
+				margin-top: 0px;
+				font-size: 35px;
+			}
+
 			.video {
 				width: 100%;
 				height: 600px;
@@ -95,7 +110,7 @@
 
 			input[type="radio"] + label::before{
 				opacity: 50;
-				margin: 0 0 0 10px;
+				margin: 0 0 0 340px;
 				width: 100px;
 				height: 90px;
 				content: '';
@@ -124,11 +139,12 @@
 			<div class="container">
 				
 				<!-- 1번 후보 -->
+				<!-- 검은사막/신규캐릭터 란 -->
 				<div class="candidates">
 
 					<!-- 썸네일 클릭 -->
 					<a class="button" data-popup-open="popup-1" href="#">	
-						<img src="{% static 'test4.png' %}">	
+						<img src="{% static 'viral1.png' %}">	
 					</a>
 
 					<!-- 팝업 레이어 -->
@@ -136,11 +152,15 @@
 						<div class="popup-inner">
 							<div class="youtube">
 							<!-- <div id="vid1"> -->
-								<iframe vid-number="popup-1" class="video" allowfullscreen="true" frameborder="0" src="https://www.youtube.com/embed/GUD4-Mz2jeU">
+								<iframe vid-number="popup-1" class="video" allowfullscreen="true" frameborder="0" src="https://www.youtube.com/embed/LsDwn06bwjM">
 								</iframe>
 							</div>
 						</div>
 						<a class="popup-close" data-popup-close="popup-1" href="#">X</a>
+					</div>
+
+					<div class="description">
+					검은사막<p>신규캐릭터 란</p>
 					</div>
 
 					<input type="radio" name="viral_id" value="1" id="cand1"></input>
@@ -148,18 +168,23 @@
 				</div>
 
 				<!-- 2번 후보 -->
+				<!-- GS칼텍스/마음이음 연결음 -->
 				<div class="candidates" data-chosen="chosen-2">
 					<a class="button" data-popup-open="popup-2" href="#">	
-						<img src="{% static 'test4.png' %}">	
+						<img src="{% static 'viral2.png' %}">	
 					</a>
 					<div class="popup" data-popup="popup-2">
 						<div class="popup-inner">
 							<div class="youtube">
-								<iframe vid-number="popup-2" class="video" allowfullscreen="true" frameborder="0" src="https://www.youtube.com/embed/dPLau0Mk4HA">
+								<iframe vid-number="popup-2" class="video" allowfullscreen="true" frameborder="0" src="https://www.youtube.com/embed/M7gy1fF3nbk">
 								</iframe>
 							</div>
 						</div>
 						<a class="popup-close" data-popup-close="popup-2" href="#">X</a>
+					</div>
+
+					<div class="description">
+					GS칼텍스<p>마음이음 연결음</p>
 					</div>
 
 					<input type="radio" name="viral_id" value="2" id="cand2" ></input>
@@ -167,18 +192,23 @@
 				</div>
 
 				<!-- 3번 후보 -->
+				<!-- 배달의 민족 2.0/런칭 -->
 				<div class="candidates">
 					<a class="button" data-popup-open="popup-3" href="#">	
-						<img src="{% static 'test4.png' %}">	
+						<img src="{% static 'viral3.png' %}">	
 					</a>
 					<div class="popup" data-popup="popup-3">
 						<div class="popup-inner">
 							<div class="youtube">
-								<iframe vid-number="popup-3" class="video" allowfullscreen="true" frameborder="0" src="https://www.youtube.com/embed/yl76je02dnI">
+								<iframe vid-number="popup-3" class="video" allowfullscreen="true" frameborder="0" src="https://www.youtube.com/embed/36JvP5pw3po">
 								</iframe>
 							</div>
 						</div>
 						<a class="popup-close" data-popup-close="popup-3" href="#">X</a>
+					</div>
+
+					<div class="description">
+					배달의 민족<p>2.0 런칭</p>
 					</div>
 
 					<input type="radio" name="viral_id" value="3"id="cand3"></input>
@@ -186,18 +216,23 @@
 				</div>
 
 				<!-- 4번 후보 -->
+				<!-- 서울시청 경비노동자 처우실태/모든 걸 지켜내셨던 우리 아빠 -->
 				<div class="candidates">
 					<a class="button" data-popup-open="popup-4" href="#">	
-						<img src="{% static 'test4.png' %}">	
+						<img src="{% static 'viral4.png' %}">	
 					</a>
 					<div class="popup" data-popup="popup-4">
 						<div class="popup-inner">
 							<div class="youtube">
-								<iframe vid-number="popup-4" class="video" allowfullscreen="true" frameborder="0" src="https://www.youtube.com/embed/WybG8FesMc8">
+								<iframe vid-number="popup-4" class="video" allowfullscreen="true" frameborder="0" src="https://www.youtube.com/embed/cLHYwLsWUzA">
 								</iframe>
 							</div>
 						</div>
 						<a class="popup-close" data-popup-close="popup-4" href="#">X</a>
+					</div>
+
+					<div class="description" style="font-size:20px; margin-top: 22px;">
+					서울시청 경비노동자 처우실태<p style="font-size:25px;">모든 걸 지켜내셨던 우리 아빠</p>
 					</div>
 
 					<input type="radio" name="viral_id" value="4" id="cand4"></input>
@@ -205,22 +240,27 @@
 				</div>
 
 				<!-- 5번 후보 -->
+				<!-- 유니클로 웜팬츠/내 생에 가장 따뜻한 겨울을 만나다 -->
 				<div class="candidates">
 
 					<!-- 썸네일 클릭 -->
 					<a class="button" data-popup-open="popup-5" href="#">	
-						<img src="{% static 'test4.png' %}">	
+						<img src="{% static 'viral5.png' %}">	
 					</a>
 
 					<!-- 팝업 레이어 -->
 					<div class="popup" data-popup="popup-5">
 						<div class="popup-inner">
 							<div class="youtube">
-								<iframe vid-number="popup-5" class="video" allowfullscreen="true" frameborder="0" src="https://www.youtube.com/embed/GUD4-Mz2jeU">
+								<iframe vid-number="popup-5" class="video" allowfullscreen="true" frameborder="0" src="https://www.youtube.com/embed/-dRRTkUnqus">
 								</iframe>
 							</div>
 						</div>
 						<a class="popup-close" data-popup-close="popup-5" href="#">X</a>
+					</div>
+
+					<div class="description" style="margin-top: 22px;font-size: 18px">
+					유니클로 웜팬츠<p style="font-size: 22px">내 생에 가장 따뜻한 겨울을 만나다</p>
 					</div>
 
 					<input type="radio" name="viral_id" value="5" id="cand5"></input>
@@ -228,18 +268,23 @@
 				</div>
 
 				<!-- 6번 후보 -->
+				<!-- LG 유플러스 반려동물 IOT앳홈/자장가의 비밀 -->
 				<div class="candidates">
 					<a class="button" data-popup-open="popup-6" href="#">	
-						<img src="{% static 'test4.png' %}">	
+						<img src="{% static 'viral6.png' %}">	
 					</a>
 					<div class="popup" data-popup="popup-6">
 						<div class="popup-inner">
 							<div class="youtube">
-								<iframe vid-number="popup-6" class="video" allowfullscreen="true" frameborder="0" src="https://www.youtube.com/embed/dPLau0Mk4HA">
+								<iframe vid-number="popup-6" class="video" allowfullscreen="true" frameborder="0" src="https://www.youtube.com/embed/a30PLIUyJug">
 								</iframe>
 							</div>
 						</div>
 						<a class="popup-close" data-popup-close="popup-6" href="#">X</a>
+					</div>
+
+					<div class="description">
+					LG U+ 반려동물 IOT앳홈<p>자장가의 비밀</p>
 					</div>
 
 					<input type="radio" name="viral_id" value="6" id="cand6" ></input>
@@ -247,18 +292,23 @@
 				</div>
 
 				<!-- 7번 후보 -->
+				<!-- 피지/LG 빡치게 하는 노래 -->
 				<div class="candidates">
 					<a class="button" data-popup-open="popup-7" href="#">	
-						<img src="{% static 'test4.png' %}">	
+						<img src="{% static 'viral7.jpg' %}">	
 					</a>
 					<div class="popup" data-popup="popup-7">
 						<div class="popup-inner">
 							<div class="youtube">
-								<iframe vid-number="popup-7" class="video" allowfullscreen="true" frameborder="0" src="https://www.youtube.com/embed/yl76je02dnI">
+								<iframe vid-number="popup-7" class="video" allowfullscreen="true" frameborder="0" src="https://www.youtube.com/embed/zWW1ZaRPyuY">
 								</iframe>
 							</div>
 						</div>
 						<a class="popup-close" data-popup-close="popup-7" href="#">X</a>
+					</div>
+
+					<div class="description">
+					피지<p>LG 빡치게 하는 노래</p>
 					</div>
 
 					<input type="radio" name="viral_id" value="7"id="cand7"></input>
@@ -266,18 +316,23 @@
 				</div>
 
 				<!-- 8번 후보 -->
+				<!-- 트로피카나 스파클링/사과 -->
 				<div class="candidates">
 					<a class="button" data-popup-open="popup-8" href="#">	
-						<img src="{% static 'test4.png' %}">	
+						<img src="{% static 'viral8.png' %}">	
 					</a>
 					<div class="popup" data-popup="popup-8">
 						<div class="popup-inner">
 							<div class="youtube">
-								<iframe vid-number="popup-8" class="video" allowfullscreen="true" frameborder="0" src="https://www.youtube.com/embed/WybG8FesMc8">
+								<iframe vid-number="popup-8" class="video" allowfullscreen="true" frameborder="0" src="https://www.youtube.com/embed/p0DE2mFp95Q">
 								</iframe>
 							</div>
 						</div>
 						<a class="popup-close" data-popup-close="popup-8" href="#">X</a>
+					</div>
+
+					<div class="description">
+					트로피카나 스파클링<p>사과</p>
 					</div>
 
 					<input type="radio" name="viral_id" value="8" id="cand8"></input>
