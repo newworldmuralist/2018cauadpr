@@ -5,7 +5,6 @@ class Ad_tv(models.Model):
 	name = models.CharField(max_length = 20)
 	number = models.IntegerField(default = 0)
 	result = models.IntegerField(default=0)
-	video_url = models.CharField(max_length=500)
 
 
 class Ad_viral(models.Model):
