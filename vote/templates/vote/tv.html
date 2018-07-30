@@ -8,6 +8,8 @@
 		<title>대학생이 뽑은 좋은 광고</title>
 		<meta charset="utf-8">  
 
+		<link rel = "stylesheet" type="text/css" href="/assets/normalize.css">
+
 		<!--font-->
 		<link href="https://fonts.googleapis.com/earlyaccess/jejugothic.css" rel="stylesheet">
 		
@@ -366,6 +368,8 @@
 						$('[data-popup-open]').on('click', 
 							function(e) 
 							{
+								$('.description').fadeOut();
+								
 								var targeted_popup_class = $(this).attr('data-popup-open');
 								$('[data-popup="' + targeted_popup_class + '"]').fadeIn(350);
 
@@ -388,6 +392,8 @@
 							{
 								var targeted_popup_class = jQuery(this).attr('data-popup-close');
 								$('[data-popup="' + targeted_popup_class + '"]').fadeOut(350);
+
+								$('.description').fadeIn();
 
 								$('.youtube').children('iframe').attr('src', '');
 
