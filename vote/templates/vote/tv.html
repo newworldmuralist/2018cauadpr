@@ -39,8 +39,8 @@
 			.candidates {
 				text-align: left;
 				background-color: #fcebdb;
-				margin-top: 20px;
-				margin-bottom: 20px;
+				margin-top: 50px;
+				margin-bottom: 50px;
 				margin-left: 20px;
 				width: 450px;
 				height: 350px;
@@ -50,10 +50,14 @@
 			.description {
 				font-family: 'Jeju Gothic', Sans-Serif;
 				display: inline-block;
-				position: absolute;
+				*display: inline;
+				*zoom: 1;
+				position: relative;
 				margin: 15px;
 				margin-left: 20px;
 				font-size: 25px;
+				width: 350px;
+				height: 100px;
 			}
 
 			p {
@@ -65,9 +69,11 @@
 				width: 100%;
 				height: 600px;
 			}
+
 			
 			/* Outer */
 			.popup {
+				z-index:3;
 				width:100%;
 				height:100%;
 				display:none;
@@ -111,6 +117,8 @@
 			}
 
 			input[type="radio"] + label::before{
+				position: relative;
+				top: -130px;
 				opacity: 50;
 				margin: 0 0 0 340px;
 				width: 100px;
@@ -124,6 +132,21 @@
 			input[type="radio"]:checked + label::before {
 			 	background: url(../assets/heart_test2.png); 	
 			  	background-position: 100px 0;
+			}
+
+			.selected {
+				display: none;
+				position: fixed;
+				width: 100%;
+				height: 200px;
+				line-height: 200px;
+				text-align: center;
+				font-family: 'Jeju Gothic', Sans-Serif;
+				font-size: 50px;
+				color: #fff;
+				background:rgba(0,0,0,0.70);
+				z-index: 5;
+				margin-top: 45%;
 			}
 		</style>
 	</head>
@@ -139,7 +162,7 @@
 	{% csrf_token %}
 
 			<div class="container">
-				
+				<div class="selected">선택되었습니다!</div>	
 				<!-- 1번 후보 -->
 				<!-- 옥수수수염차/다짜고짜 -->
 				<div class="candidates">
@@ -342,7 +365,7 @@
 			</div>
 
 			<!-- 제출 버튼 -->
-			<div class="button" style="margin-top: 20px;">
+			<div class="button" style="margin-top: 20px; margin-bottom: 100px;">
 				<input type="image" src="{% static 'vb2.png' %}" alt="Submit">
 			</div>
 
@@ -360,7 +383,19 @@
 				var src8 = $('[vid-number="popup-8"]').attr('src');
 
 				$('.youtube').children('iframe').attr('src', '');
-
+				
+				// selected alert
+				$(function()
+					{
+						$(':radio').on('click',
+							function(e)
+							{
+								$('.selected').fadeIn();
+								$('.selected').delay(500).fadeOut(500);
+							})
+					}
+				)
+				
 				// 팝업 레이어
 				$(function() 
 					{
@@ -368,8 +403,7 @@
 						$('[data-popup-open]').on('click', 
 							function(e) 
 							{
-								$('.description').fadeOut();
-								
+														
 								var targeted_popup_class = $(this).attr('data-popup-open');
 								$('[data-popup="' + targeted_popup_class + '"]').fadeIn(350);
 
@@ -393,9 +427,7 @@
 								var targeted_popup_class = jQuery(this).attr('data-popup-close');
 								$('[data-popup="' + targeted_popup_class + '"]').fadeOut(350);
 
-								$('.description').fadeIn();
-
-								$('.youtube').children('iframe').attr('src', '');
+														$('.youtube').children('iframe').attr('src', '');
 
 								e.preventDefault();
 							}

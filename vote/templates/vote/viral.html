@@ -20,6 +20,7 @@
 		
 		<style>
 			.container{
+				position: relative;
 				display: flex;
 				flex-wrap: wrap;
 				width: 100%;
@@ -37,6 +38,7 @@
 
 			}
 			.candidates {
+				border: 0px solid transparent;
 				text-align: left;
 				background-color: #fcebdb;
 				margin-top: 20px;
@@ -50,10 +52,12 @@
 			.description {
 				font-family: 'Jeju Gothic', Sans-Serif;
 				display: inline-block;
-				position: absolute;
+				position: relative;
 				margin: 15px;
 				margin-left: 20px;
 				font-size: 25px;
+				width: 350px;
+				height: 100px;
 			}
 
 			p {
@@ -68,6 +72,7 @@
 			
 			/* Outer */
 			.popup {
+				z-index: 3;
 				width:100%;
 				height:100%;
 				display:none;
@@ -111,6 +116,8 @@
 			}
 
 			input[type="radio"] + label::before{
+				position: relative;
+				top: -130px;
 				opacity: 50;
 				margin: 0 0 0 340px;
 				width: 100px;
@@ -125,7 +132,23 @@
 			 	background: url(../assets/heart_test2.png); 	
 			  	background-position: 100px 0;
 			}
-		</style>
+
+			.selected {
+				display:none;
+				position: fixed;
+				width: 100%;
+				height: 200px;
+				line-height: 200px;
+				text-align: center;
+				font-family: 'Jeju Gothic', Sans-Serif;
+				font-size: 50px;
+				color:#fff;
+				background:rgba(0,0,0,0.70);
+				z-index:5;
+				margin-top:45%;
+			}
+
+			</style>
 	</head>
 
 	<!-- 배경색 -->
@@ -139,6 +162,7 @@
 	{% csrf_token %}
 
 			<div class="container">
+				<div class="selected">선택되었습니다!</div>
 				
 				<!-- 1번 후보 -->
 				<!-- 검은사막/신규캐릭터 란 -->
@@ -233,8 +257,8 @@
 						<a class="popup-close" data-popup-close="popup-4" href="#">X</a>
 					</div>
 
-					<div class="description" style="font-size:20px; margin-top: 22px;">
-					서울시청 경비노동자 처우실태<p style="font-size:25px;">모든 걸 지켜내셨던 우리 아빠</p>
+					<div class="description" style="font-size:22px;">
+					서울시청 경비노동자 처우실태<p style="margin-top:5px; font-size:26px;">모든 걸 지켜내셨던 우리 아빠</p>
 					</div>
 
 					<input type="radio" name="viral_id" value="4" id="cand4"></input>
@@ -261,8 +285,8 @@
 						<a class="popup-close" data-popup-close="popup-5" href="#">X</a>
 					</div>
 
-					<div class="description" style="margin-top: 22px;font-size: 18px">
-					유니클로 웜팬츠<p style="font-size: 22px">내 생에 가장 따뜻한 겨울을 만나다</p>
+					<div class="description">
+					유니클로 웜팬츠<p style="margin-top:6px; font-size: 22px;">내 생에 가장 따뜻한 겨울을 만나다</p>
 					</div>
 
 					<input type="radio" name="viral_id" value="5" id="cand5"></input>
@@ -345,7 +369,7 @@
 			</div>
 
 			<!-- 제출 버튼 -->
-			<div class="button" style="margin-top: 20px;">
+			<div class="button" style="margin-top: 20px; margin-bottom: 100px;">
 				<input type="image" src="{% static 'vb3.png' %}" alt="Submit">
 			</div>
 
@@ -363,6 +387,18 @@
 				var src8 = $('[vid-number="popup-8"]').attr('src');
 
 				$('.youtube').children('iframe').attr('src', '');
+				
+				//selected alert
+				$(function()
+					{
+						$(':radio').on('click',
+							function(e)
+							{
+								$('.selected').fadeIn();
+								$('.selected').delay(500).fadeOut(500);
+							})
+					}
+				)
 
 				// 팝업 레이어
 				$(function() 
@@ -371,7 +407,7 @@
 						$('[data-popup-open]').on('click', 
 							function(e) 
 							{
-								$('.description').fadeOut();
+					
 
 								var targeted_popup_class = $(this).attr('data-popup-open');
 								$('[data-popup="' + targeted_popup_class + '"]').fadeIn(350);
@@ -396,8 +432,7 @@
 								var targeted_popup_class = jQuery(this).attr('data-popup-close');
 								$('[data-popup="' + targeted_popup_class + '"]').fadeOut(350);
 
-								$('.description').fadeIn();
-
+					
 								$('.youtube').children('iframe').attr('src', '');
 
 								e.preventDefault();
