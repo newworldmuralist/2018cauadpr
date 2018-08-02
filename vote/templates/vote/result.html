@@ -11,35 +11,23 @@
     <script type="text/javascript" src="js/jquery.battatech.excelexport.js"></script>
     
     <style>
-    	body {  
-		background-color: #f3cf5f;
+    	body {
     		display: flex;
-		flex-direction: column;
-		justify-content: center;
 			font-family: 'Jeju Gothic', Sans-Serif;
 			font-size: 1.5rem;
 			border: none;
     	}
 
     	table {
-		background-color: #fff;
-		width: 70%;
-		border-spacing: 0;
     		border: 1px solid black;
-    		margin: 10px auto;
+    		margin: 40px;
     		text-align: center;
     	}
 
-	td {
-		width:200px;
-		border-bottom: 1px solid gray;
-	}
-
     	.sector {
-		text-align: center;  		
- 		margin: 10px auto;
-		padding: 10px;
-		width: 50%;
+    		border: 1px solid black;
+    		padding: 10px;
+    		width: 70px;
     		background-color: #f3cf5f;
     		font-size: 40px;
     		font-weight: bold;
@@ -59,17 +47,23 @@
 </head>
 	<body>
 		<div>
-		<p class="sector">TV부문</p>
 		<table id='tblExport'>
 			<thead>
 				<tr>
-					<td style="padding: 10px;">이름</td>
+					<td></td>
+					<td class="sector">TV 부문</td>
+					<td></td>
+				</tr>
+				<tr>
+					<td class="empty"></td>
+					<td>이름</td>
 					<td>득표 수</td>
 				</tr>
 			</thead>
 			<tbody>
 				{% for ad in tv_candidates %}
 				<tr>
+					<td class="empty"></td>
 					<td class="names">{{ad.name}}</td>
 					<td>{{ad.result}}</td>
 				</tr>
@@ -77,19 +71,24 @@
 			</tbody>
 		</table>
 		</div>
-		<div style="margin:10px auto; background-color:#fff;"></div>
 		<div>		
-		<p class="sector">바이럴 부문</p>
 		<table>
 			<thead>
 				<tr>
-					<td style="padding: 10px;">이름</td>
+					<td></td>
+					<td class="sector">바이럴 부문</td>
+					<td></td>
+				</tr>
+				<tr>
+					<td class="empty"></td>
+					<td>이름</td>
 					<td>득표 수</td>
 				</tr>
 			</thead>
 			<tbody>
 				{% for ad in viral_candidates %}
 				<tr>
+					<td class="empty"></td>
 					<td class="names">{{ad.name}}</td>
 					<td>{{ad.result}}</td>
 				</tr>
