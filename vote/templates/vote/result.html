@@ -13,31 +13,34 @@
     <style>
     	body {
     		display: flex;
-		flex-direction: column;
-		justify-content: center;
+			flex-direction: column;
+			justify-content: center;
 			font-family: 'Jeju Gothic', Sans-Serif;
 			font-size: 1.5rem;
 			border: none;
     	}
 
     	table {
+    		width: 80%;
+    		border-spacing: 0;
+    		background-color: #fff;
     		border: 1px solid black;
     		margin: 20px auto;
     		text-align: center;
     	}
 
+    	td {
+    		border-bottom: 1px solid gray;
+    		padding: 0 10px;
+    	}
+
     	.sector {
-		margin: 20px auto;
-    		border: 1px solid black;
-    		padding: 10px;
-    		width: 70px;
+			margin: 30px auto;
     		background-color: #f3cf5f;
     		font-size: 40px;
     		font-weight: bold;
-    	}
-
-    	.empty {
-    		width: 100px;
+    		width: 50%;
+    		text-align: center;
     	}
 
     	.names {
@@ -50,52 +53,42 @@
 </head>
 	<body style="background-color: #f3cf5f">
 		<div>
-		<table id='tblExport'>
-			<thead>
-					<td class="sector">TV 부문</td>
-					<td></td>
-				</tr>
-				<tr>
-					<td class="empty"></td>
-					<td>이름</td>
-					<td>득표 수</td>
-				</tr>
-			</thead>
-			<tbody>
-				{% for ad in tv_candidates %}
-				<tr>
-					<td class="empty"></td>
-					<td class="names">{{ad.name}}</td>
-					<td>{{ad.result}}</td>
-				</tr>
-				{% endfor %}
-			</tbody>
-		</table>
+			<p class="sector">TV 부문</p>
+			<table id='tblExport'>
+				<thead>
+					<tr>
+						<td style="padding: 20px">이름</td>
+						<td>득표 수</td>
+					</tr>
+				</thead>
+				<tbody>
+					{% for ad in tv_candidates %}
+					<tr>
+						<td class="names">{{ad.name}}</td>
+						<td>{{ad.result}}</td>
+					</tr>
+					{% endfor %}
+				</tbody>
+			</table>
 		</div>
 		<div>		
-		<table>
-			<thead>
-				<tr>
-					<td></td>
-					<td class="sector">바이럴 부문</td>
-					<td></td>
-				</tr>
-				<tr>
-					<td class="empty"></td>
-					<td>이름</td>
-					<td>득표 수</td>
-				</tr>
-			</thead>
-			<tbody>
-				{% for ad in viral_candidates %}
-				<tr>
-					<td class="empty"></td>
-					<td class="names">{{ad.name}}</td>
-					<td>{{ad.result}}</td>
-				</tr>
-				{% endfor %}
-			</tbody>
-		</table>
+			<p class="sector">바이럴 부문</p>
+			<table>
+				<thead>
+					<tr>
+						<td style="padding: 20px">이름</td>
+						<td>득표 수</td>
+					</tr>
+				</thead>
+				<tbody>
+					{% for ad in viral_candidates %}
+					<tr>
+						<td class="names">{{ad.name}}</td>
+						<td>{{ad.result}}</td>
+					</tr>
+					{% endfor %}
+				</tbody>
+			</table>
 		</div>
 	</body>
 </html>
