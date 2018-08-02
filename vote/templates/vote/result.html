@@ -1,25 +1,100 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
 	<title>투표 결과</title>
 	<meta charset="utf-8">
+
+	<!--font-->
+	<link href="https://fonts.googleapis.com/earlyaccess/jejugothic.css" rel="stylesheet">
+
+    <script src="https://code.jquery.com/jquery-1.11.2.min.js"></script>
+    <script type="text/javascript" src="js/jquery.battatech.excelexport.js"></script>
+    
+    <style>
+    	body {
+    		display: flex;
+			font-family: 'Jeju Gothic', Sans-Serif;
+			font-size: 1.5rem;
+			border: none;
+    	}
+
+    	table {
+    		border: 1px solid black;
+    		margin: 40px;
+    		text-align: center;
+    	}
+
+    	.sector {
+    		border: 1px solid black;
+    		padding: 10px;
+    		width: 70px;
+    		background-color: #f3cf5f;
+    		font-size: 40px;
+    		font-weight: bold;
+    	}
+
+    	.empty {
+    		width: 100px;
+    	}
+
+    	.names {
+    		width: 500px;
+    		height: 50px;
+    	}
+
+    </style>
+
 </head>
 	<body>
 		<div>
-			TV, 바이럴 부문 <br>
-			<br>
-			{% for ad in vid_candidates %}
-			{{ad.name}} = {{ad.result}} <br>
-			{% endfor %}
-			<br>
+		<table id='tblExport'>
+			<thead>
+				<tr>
+					<td></td>
+					<td class="sector">TV 부문</td>
+					<td></td>
+				</tr>
+				<tr>
+					<td class="empty"></td>
+					<td>이름</td>
+					<td>득표 수</td>
+				</tr>
+			</thead>
+			<tbody>
+				{% for ad in tv_candidates %}
+				<tr>
+					<td class="empty"></td>
+					<td class="names">{{ad.name}}</td>
+					<td>{{ad.result}}</td>
+				</tr>
+				{% endfor %}
+			</tbody>
+		</table>
 		</div>
-		<div>
-			브랜디드 엔터테인먼트 부문 <br>
-			<br>
-			{% for ad in ent_candidates %}
-			{{ad.name}} = {{ad.result}} <br>
-			{% endfor %}
-			<br>
+		<div>		
+		<table>
+			<thead>
+				<tr>
+					<td></td>
+					<td class="sector">바이럴 부문</td>
+					<td></td>
+				</tr>
+				<tr>
+					<td class="empty"></td>
+					<td>이름</td>
+					<td>득표 수</td>
+				</tr>
+			</thead>
+			<tbody>
+				{% for ad in viral_candidates %}
+				<tr>
+					<td class="empty"></td>
+					<td class="names">{{ad.name}}</td>
+					<td>{{ad.result}}</td>
+				</tr>
+				{% endfor %}
+			</tbody>
+		</table>
 		</div>
 	</body>
 </html>
