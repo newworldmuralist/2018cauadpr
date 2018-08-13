@@ -30,7 +30,7 @@
     	}
 
     	td {
-    		border-bottom: 1px solid gray;
+    		border-bottom: 1px solid black;
     		padding: 0 10px;
     	}
 
@@ -57,18 +57,20 @@
 			<table id='tblExport'>
 				<thead>
 					<tr>
-						<td style="padding: 20px">이름</td>
-						<td>득표 수</td>
+						<td style="padding: 20px; background-color: #fcebdb;">이름</td>
+						<td style="background-color: #fcebdb;">득표 수</td>
 					</tr>
 				</thead>
 				<tbody>
 					{% for ad in tv_candidates %}
 					<tr>
 						<td class="names">{{ad.name}}</td>
-						<td>{{ad.result}}</td>
+						<td class="tv_count">{{ad.result}}</td>
 					</tr>
 					{% endfor %}
 				</tbody>
+				<td class="names" style="background-color: #8ba985; color:#fff;">총 득표 수</td>
+				<td id="tv_total" style="background-color: #8ba985; color:#fff;"></td>
 			</table>
 		</div>
 		<div>		
@@ -76,19 +78,42 @@
 			<table>
 				<thead>
 					<tr>
-						<td style="padding: 20px">이름</td>
-						<td>득표 수</td>
+						<td style="padding: 20px; background-color: #fcebdb;">이름</td>
+						<td style="background-color: #fcebdb;">득표 수</td>
 					</tr>
 				</thead>
 				<tbody>
 					{% for ad in viral_candidates %}
 					<tr>
 						<td class="names">{{ad.name}}</td>
-						<td>{{ad.result}}</td>
+						<td class="viral_count">{{ad.result}}</td>
 					</tr>
 					{% endfor %}
 				</tbody>
+				<td class="names" style="background-color: #8ba985; color:#fff;">총 득표 수</td>
+				<td id="viral_total" style="background-color: #8ba985; color:#fff;"></td>
 			</table>
 		</div>
+		<script>
+			//tv
+			var tv_total = 0;
+			var tv_count = document.getElementsByClassName('tv_count');
+
+			for (var i = 7; i >= 0; i--) {
+				tv_total += parseInt(tv_count[i].innerHTML);
+			}
+
+			document.getElementById('tv_total').innerHTML = tv_total;
+
+			//viral
+			var viral_total = 0;
+			var viral_count = document.getElementsByClassName('viral_count');
+
+			for (var i = 7; i >= 0; i--) {
+				viral_total += parseInt(viral_count[i].innerHTML);
+			}
+
+			document.getElementById('viral_total').innerHTML = viral_total;
+		</script>
 	</body>
 </html>
