@@ -34,10 +34,19 @@
 			}
 
 			.button {
+				/*position: absolute;*/
 				text-align: center;
 				margin-top: -15px;
-
 			}
+
+			.buttonlayer{
+				position: absolute;
+				border: none;
+				background:rgba(0,0,0,0.0); 
+				width: 225px;
+				height: 70px;
+			}
+
 			.candidates {
 				border: 0px solid transparent;
 				text-align: left;
@@ -371,12 +380,23 @@
 
 			<!-- 제출 버튼 -->
 			<div class="button" style="margin-top: 100px; margin-bottom: 300px;">
-				<input type="image" src="{% static 'button3.png' %}" alt="Submit">
+				<input type="button" class="buttonlayer">
+				<input type="image" id="btn" src="{% static 'button3.png' %}" alt="Submit">
 			</div>
 
 		</form>
 		
 		<script>
+			$(function(){
+				$('input[type=radio]').click(function(){
+					$('.buttonlayer').attr("style", "display: none");
+				});
+
+				$('.buttonlayer').click(function(){
+					alert("후보를 선택하지 않으셨네요!");
+				});
+			});
+			
 			$(document).ready(function(){
 				var src1 = $('[vid-number="popup-1"]').attr('src');
 				var src2 = $('[vid-number="popup-2"]').attr('src');
@@ -388,7 +408,7 @@
 				var src8 = $('[vid-number="popup-8"]').attr('src');
 
 				$('.youtube').children('iframe').attr('src', '');
-				
+
 				//selected alert
 				$(function()
 					{
