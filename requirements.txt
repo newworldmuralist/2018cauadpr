@@ -12,7 +12,7 @@ command-not-found==0.3
 configobj==5.0.6
 cryptography==1.2.3
 decorator==4.0.6
-Django==2.0.6
+Django==2.2.13
 docker==3.4.1
 docker-compose==1.21.2
 docker-pycreds==0.3.0
