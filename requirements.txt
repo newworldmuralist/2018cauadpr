@@ -42,7 +42,7 @@ python-dateutil==2.7.3
 python-debian==0.1.27
 python-systemd==231
 pytz==2018.4
-PyYAML==3.13
+PyYAML==5.4
 requests==2.18.4
 scipy==0.17.0
 semantic-version==2.5.0
